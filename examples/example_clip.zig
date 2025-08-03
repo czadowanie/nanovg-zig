@@ -13,14 +13,14 @@ const random = prng.random();
 
 var cursor_shape: Shape = .star;
 
-fn keyCallback(window: ?*c.GLFWwindow, key: c_int, scancode: c_int, action: c_int, mods: c_int) callconv(.C) void {
+fn keyCallback(window: ?*c.GLFWwindow, key: c_int, scancode: c_int, action: c_int, mods: c_int) callconv(.c) void {
     _ = scancode;
     _ = mods;
     if (key == c.GLFW_KEY_ESCAPE and action == c.GLFW_PRESS)
         c.glfwSetWindowShouldClose(window, c.GL_TRUE);
 }
 
-fn mouseButtonCallback(window: ?*c.GLFWwindow, button: c_int, action: c_int, mods: c_int) callconv(.C) void {
+fn mouseButtonCallback(window: ?*c.GLFWwindow, button: c_int, action: c_int, mods: c_int) callconv(.c) void {
     _ = window;
     _ = mods;
     if (button == c.GLFW_MOUSE_BUTTON_LEFT and action == c.GLFW_PRESS) {
